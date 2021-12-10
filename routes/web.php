@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\MeuControlador;
+use App\Http\Controllers\ClienteControlador;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +24,9 @@ Route::get('produtos', [MeuControlador::class, 'produtos']);
 Route::get('nome', [MeuControlador::class, 'getNome']);
 Route::get('idade', [MeuControlador::class, 'getIdade']);
 Route::get('multiplicar/{n1}/{n2}', [MeuControlador::class, 'multiplica']);
+
+//criando varias rotas de uma só vez
+Route::resource('clientes', ClienteControlador::class);
 
 Auth::routes();
 
